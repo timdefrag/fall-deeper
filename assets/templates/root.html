@@ -1,0 +1,11 @@
+<div class="root-navbar">
+  <span class="root-logo">entrance_net</span>
+  <span data-bind="foreach: allNavs">
+    <a href="#" class="root-nav" data-bind="
+      click  : $parent.setNav,
+      text   : label,
+      css    : { active: $parent.activeNav() === $data }
+    "></a>
+  </span>
+</div>
+<div class="root-body" data-bind="component: { name: activeNav().view, params: { persist: true } }"></div>
