@@ -23,3 +23,6 @@ module.exports =
         code:     err.code || 'unhandled-exception',
         message:  err.message || null,
         data:     err.data || null
+        
+  pageLimitOffset: (page, perPage) ->
+    { limit: perPage, offset: (page * perPage) }
