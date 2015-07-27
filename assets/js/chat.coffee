@@ -4,5 +4,4 @@ do ->
     constructor: ->
       null
       
-      
   tn.core.registerView 'chat', ChatController

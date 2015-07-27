@@ -1,0 +1,11 @@
+<div class="admin-navbar">
+  <span class="admin-logo">Admin Controls</span>
+  <span data-bind="foreach: allNavs">
+    <a href="#" class="admin-nav" data-bind="
+      click  : $parent.setNav,
+      text   : label,
+      css    : { active: $parent.activeNav() === $data }
+    "></a>
+  </span>
+</div>
+<div class="admin-body" data-bind="component: { name: activeNav().view, params: { persist: true, notify: setContentView } }"></div>

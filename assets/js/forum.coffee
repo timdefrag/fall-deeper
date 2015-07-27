@@ -2,8 +2,8 @@ do ->
   
   tn.forum = {}
   
-  tn.forum.loadSections = ->
-    tn.util.request 'get', 'forum/sections'
+  tn.forum.loadForumSections = ->
+    tn.util.request 'get', '/forum/sections'
   
   class ForumController
     constructor: ->
@@ -17,7 +17,7 @@ do ->
     loadSections: ->
       @loading true
       tn.forum
-        .loadSections()
+        .loadForumSections()
         .fin => @loading false
         .then (sections) =>
           console.log 'got sections:', sections
