@@ -1,11 +1,32 @@
-<div class="root-navbar">
-  <span class="root-logo">entrance_net</span>
-  <span data-bind="foreach: allNavs">
-    <a href="#" class="root-nav" data-bind="
-      click  : $parent.setNav,
-      text   : label,
-      css    : { active: $parent.activeNav() === $data }
-    "></a>
-  </span>
+<div class="root-login-container" data-bind="ifnot: user">
+  <form class="root-login-form" data-bind="submit: connect">
+    <span class="root-login-title">entrance_net</span>
+    <input
+      class="root-login-field top"
+      type="text"
+      placeholder="nick"
+      data-bind="value: nick"/>
+    <input
+      class="root-login-field"
+      type="password"
+      placeholder="pass (if registered nick)"
+      data-bind="value: pass"/>
+    <button class="root-login-button">connect</button>
+  </form>
 </div>
-<div class="root-body" data-bind="component: { name: activeNav().view, params: { persist: true, notify: setContentView } }"></div>
+<div data-bind="if: user">
+  <div class="root-navbar">
+    <span class="root-logo">entrance_net</span>
+    <span data-bind="foreach: allNavs">
+      <a href="#" class="root-nav" data-bind="
+        click  : $parent.setNav,
+        text   : label,
+        css    : { active: $parent.activeNav() === $data }
+      "></a>
+    </span>
+  </div>
+  <div class="root-body" data-bind="component: {
+    name    : activeNav().view,
+    params  : { persist: true, notify: setContentView }
+  }"></div>
+</div>

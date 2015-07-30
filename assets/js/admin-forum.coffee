@@ -5,3 +5,4 @@ do ->
       null
       
   tn.core.registerView 'admin-forum', AdminForumController
+  

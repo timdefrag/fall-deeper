@@ -1,18 +1,79 @@
 
+.root-login-container {
+  text-align: center;
+}
+
+.root-login-form {
+  display        : inline-block;
+  background     : #D070F0;
+  margin         : 3.33em;
+  padding        : 0.666em;
+  border-radius  : 0.333em;
+}
+
+.root-login-form-element {
+  display    : block;
+  margin     : 0;
+  border     : none;
+  font-size  : 1.11em;
+}
+
+.root-login-title {
+  .root-login-form-element;
+  
+  color          : #B040A0;
+  text-align     : left;
+  font-family    : sans-serif;
+  font-weight    : bold;
+  font-size      : 1.33em;
+  margin-bottom  : 0.666em;
+}
+
+.root-login-field {
+  .root-login-form-element;
+  
+  padding  : 0.333em;
+  width    : 20em;
+  color    : #807090;
+  
+  &.top {
+    border-top-left-radius   : 0.333em;
+    border-top-right-radius  : 0.333em;
+    border-bottom            : 1px solid #F0C0F0;
+  }
+}
+
+.root-login-button {
+  .root-login-form-element;
+  
+  background      : #F0C0F0;
+  color           : #807090;
+  width           : 20.666em;
+  padding-top     :  0.333em;
+  padding-bottom  :  0.333em;
+  
+  border-bottom-left-radius   : 0.333em;
+  border-bottom-right-radius  : 0.333em;
+  
+  &:hover {
+    background: #F0D0F0;
+    cursor: pointer;
+  }
+}
 
 .root-navbar {
   background: #403050;
 }
 
 .root-logo {
-  display          : inline-block;
-  font-size        : 1.333em;
-  font-family      : sans-serif;
-  font-weight      : bold;
-  font-style       : italic;
-  margin           : 0.333em;
-  margin-right     : 0.25em;
-  color            : #D070F0;
+  display       : inline-block;
+  font-size     : 1.333em;
+  font-family   : sans-serif;
+  font-weight   : bold;
+  font-style    : italic;
+  margin        : 0.333em;
+  margin-right  : 0.25em;
+  color         : #D070F0;
 }
 
 .root-nav {
