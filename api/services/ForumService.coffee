@@ -1,6 +1,6 @@
-module.exports =
+module.exports = 
 
-  getSections: () ->
+  getSections: ->
     ForumSection.find()
     
   getThreads: (sectionId, limit = null, offset = null) ->
@@ -8,4 +8,3 @@ module.exports =
     
   getPosts: (threadId, limit = null, offset = null) ->
     ForumThread.find({ thread: threadId })
-  

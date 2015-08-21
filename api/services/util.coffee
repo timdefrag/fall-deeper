@@ -1,4 +1,10 @@
+Q = require 'q'
+
 module.exports =
+
+  log: (ns, fn, values...) ->
+    values.unshift '[' + ns + '] ' + fn + ':'
+    sails.log.apply sails, values
 
   getPayload: (req, opts) -> 
     opts = _.defaults(opts || {}, {

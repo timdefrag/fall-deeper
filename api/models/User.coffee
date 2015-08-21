@@ -1,3 +1,7 @@
+ns = 'api/models/User.coffee'
+
+uuid = require 'uuid'
+
 module.exports =
   attributes:
     session:
@@ -11,4 +15,8 @@ module.exports =
     admin:
       type        : 'boolean'
       defaultsTo  : false
-    
+      
+  beforeCreate: (values, cb) ->
+    fn = 'beforeCreate'
+    values.session = uuid.v4()
+    cb()

@@ -1,6 +1,8 @@
 do ->
 
-  class ChatController
+  tn.chat = {}
+
+  tn.chat.ChatController = class ChatController
     constructor: ->
       @initListeners()
       

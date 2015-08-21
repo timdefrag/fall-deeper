@@ -6,12 +6,6 @@ do ->
     chat   : { view: 'chat'   , label: 'Chat'   }
     forum  : { view: 'forum'  , label: 'Forum'  }
     admin  : { view: 'admin'  , label: 'Admin'  }
-
-  tn.root.connect = () ->
-    null
-    
-  tn.root.disconnect = () ->
-    null
     
   tn.root.RootController = class RootController
     constructor: ->
@@ -49,10 +43,16 @@ do ->
         @contentView.onResize(w, h - $navbar.height())
         
     connect: ->
+      payload = 
+        nick: @nick()
+        pass: @pass()
+      if @user
+        payload.session = @user.session
       tn.util
-        .request 'post', '/user/connect'
-        .then (session) ->
-          console.log 'you logged in son. session key:', session
+        .request 'post', '/user/connect', payload
+        .then (user) =>
+          console.log 'you logged in son. session key:', user.session
+          @user user
         .fail (err) ->
           console.log 'connect failed:', err
     
@@ -61,6 +61,7 @@ do ->
         .request 'post', '/user/disconnect'
         .then ->
           console.log 'logged out'
+          @user = null
         .fail (err) ->
           console.log 'logout failed you fucking idiot:', err
       
